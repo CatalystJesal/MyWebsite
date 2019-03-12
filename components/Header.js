@@ -11,7 +11,7 @@ class Header extends Component {
           <div id="avatar">
             <Link href="/">
               <a>
-                <img src="../static/Jesal.jpg" alt="Avatar" />
+                <img id="avatar_img" src="../static/avatar.png" />
               </a>
             </Link>
           </div>
@@ -19,12 +19,6 @@ class Header extends Component {
       </div>
     );
   }
-
-  handleClick = () => {
-    <Link href="/">
-      <a>Home</a>
-    </Link>;
-  };
 }
 
 export default Header;

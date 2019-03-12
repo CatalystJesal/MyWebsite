@@ -1,89 +1,73 @@
-#wrapper {
-  /* margin-left: auto;
-  margin-right: auto;
-  width: 100%; */
-}
-
 html,
 body {
   font-size: 1em;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: "ZCOOL QingKe HuangYou", cursive; */
+  /* font-family: "Indie Flower", cursive; */
+  font-family: "Roboto", sans-serif;
   line-height: 1.5;
-  overflow: hidden;
   position: relative;
   height: 100vh;
-  margin: 0;
+  background: white;
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-size: cover;
+  overflow: hidden;
 }
 
 header {
-  width: 100vw;
-  min-height: 20vh;
+  min-width: 100vw;
+  min-height: 21vh;
   position: relative;
   justify-content: center;
   text-align: center;
+  background-color: #333333;
+  background-image: url("/static/concrete-wall.png");
 }
 
 footer {
   top: 0vh;
-  width: 100vw;
-  height: 6.4vh;
+  min-width: 100vw;
+  /* min-height: 3.2vh; */
+  min-height: 35px;
   position: relative;
   display: flex;
-  left: 1;
+  left: 0;
   bottom: 0;
   justify-content: center;
   font-size: 1.2em;
+  border-top: solid white;
+  color: white;
+  background-color: #333333;
+  background-image: url("/static/concrete-wall.png");
 }
 
-.container {
-  width: 100vw;
-}
+/* Container <h1> <h2> */
 
-.container nav {
-  min-height: 6vh;
-  display: flex;
-  justify-content: center;
+.container h1 {
+  color: white;
+  font-size: 1.9em;
   position: relative;
-  margin: auto;
-}
-
-.container a {
-  font-size: 1.8em;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  padding-left: 6vw;
-  padding-right: 6vw;
-}
-
-.container ul {
-  width: 100vw;
-  min-height: 100%;
-  position: relative;
-  display: inline-flex;
-  border: solid black;
-  top: -0.1vh;
   justify-content: center;
-}
-
-.container li {
-  list-style-type: none;
-  border: solid black;
-  display: inline-block;
-}
-
-.container section {
-  min-height: 65vh;
   text-align: center;
+  top: 0vh;
 }
 
-/* max width % and min width px to help with zoom and scaling upon resizing window */
-.container img {
+.container h2 {
+  color: white;
+  font-size: 1.1em;
+  position: relative;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Container Avatar  */
+
+#avatar_img {
   border-radius: 50%;
   max-width: 180px;
 }
 
-.container #avatar {
+#avatar {
   min-width: 180px;
   display: flex;
   position: relative;
@@ -92,38 +76,287 @@ footer {
   top: 1px;
 }
 
-@media screen and (max-width: 310px) {
-  .container ul {
-    width: 100vw;
-    min-height: 100%;
-    position: relative;
-    display: inline-block;
-    top: -0.1vh;
-    justify-content: center;
+/* Container navigation */
+
+.container {
+  width: 100vw;
+}
+
+.container #nav {
+  min-height: 6vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  border-top: solid white;
+  border-bottom: solid white;
+  background-color: #333333;
+  background-image: url("/static/concrete-wall.png");
+}
+
+.container #nav_li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#nav_li a {
+  font-size: 1.8em;
+  color: white;
+  text-decoration: none;
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+
+#nav_li a:hover {
+  color: rgb(119, 118, 118);
+}
+
+/* Container <section>  */
+
+.container section {
+  min-height: 65vh;
+  display: flex;
+  justify-content: center;
+  background-color: #9a3334;
+  text-align: left;
+  background-image: url("/static/concrete-wall.png");
+}
+
+/* Container - About Me */
+
+.aboutme {
+  align-content: center;
+  justify-content: center;
+  min-height: 65vh;
+  padding-right: 1vw;
+  padding-left: 1vw;
+}
+
+.aboutme p {
+  font-size: 1em;
+  color: white;
+  width: 35vw;
+  display: flex;
+  position: relative;
+  text-align: center;
+}
+
+/* Projects container */
+
+.projects {
+  margin: auto;
+  position: relative;
+  width: 40vw;
+  min-height: 53vh;
+  outline: none;
+  overflow: hidden;
+}
+
+.projects img {
+  position: absolute;
+
+  width: 40vw;
+  height: 50vh;
+}
+
+/* #Siema - Carousel */
+
+.overlay {
+  color: white;
+  position: relative;
+  height: 50vh;
+  width: 40vw;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.3s ease;
+  background-color: #333333;
+}
+
+.siema:hover .overlay {
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+#overlay_title {
+  /* font-size: 1.9em; */
+  font-size: 1.5vw;
+  /* font-size: 30px; */
+  position: absolute;
+  opacity: 1;
+  top: 10%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#overlay_description {
+  /* font-size: 1.4em; */
+  font-size: 1.2vw;
+  /* font-size: 23px; */
+  position: absolute;
+  opacity: 1;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 36vw;
+}
+
+#overlay_tech {
+  /* font-size: 1.4em; */
+  font-size: 1.2vw;
+  position: absolute;
+  opacity: 1;
+  top: 80%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.projects button {
+  position: relative;
+  margin-top: 5px;
+  margin-left: 10px;
+  color: white;
+  background: #333333;
+  border: none;
+  font-size: 16px;
+  height: auto;
+  width: 60px;
+}
+
+/* Contact  */
+
+.contact {
+  margin: auto;
+  text-align: center;
+  /* border: solid #333333; */
+  /* width: 35vw; */
+  min-height: 53vh;
+  outline: none;
+  overflow: hidden;
+}
+
+.contact p {
+  color: white;
+  font-size: 1em;
+  margin: auto;
+  text-align: center;
+  width: 35vw;
+}
+
+#links {
+  position: relative;
+  top: 5vh;
+  height: auto;
+  vertical-align: middle;
+  margin: auto;
+  /* border: solid black; */
+}
+
+#links img {
+  display: inline-block;
+  width: 100px;
+  height: 120px;
+  height: auto;
+  margin: auto;
+  /* border: solid black; */
+}
+
+/* For phone devices */
+
+@media screen and (max-width: 1250px) {
+  .aboutme p {
+    font-size: 1em;
+    width: 80vw;
   }
-  .container li {
-    list-style-type: none;
-    position: relative;
+
+  .contact p {
+    font-size: 1em;
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  /* .container #nav_ul {
     display: inline-block;
   }
 
-  .container a {
+  .container #nav_li {
+    display: inline-block;
+  } */
+
+  .container #nav_links {
     font-size: 1.4em;
-    text-decoration: none;
-    font-weight: bold;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  body {
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .projects {
+    min-width: 60vw;
   }
 
-  .container img {
-    border-radius: 50%;
-    max-width: 180px;
+  .projects img {
+    min-width: 60vw;
+    min-height: 50vh;
   }
 
-  .container #avatar {
-    min-width: 180px;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    height: 181px;
-    top: 1px;
+  .overlay {
+    min-width: 60vw;
+    min-height: 50vh;
+  }
+
+  #overlay_title {
+    /* font-size: 1.5vw; */
+    font-size: 2.9vw;
+  }
+
+  #overlay_description {
+    font-size: 2.6vw;
+    width: 50vw;
+  }
+
+  #overlay_tech {
+    font-size: 2.6vw;
+  }
+}
+
+@media screen and (max-height: 850px) {
+  footer {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-height: 605px) {
+  footer {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 240px) {
+  #links {
+    display: block;
+    border: solid black;
+    top: 0px;
+  }
+
+  #links img {
+    display: block;
+    width: 65px;
+    height: 85px;
+    /* margin: auto; */
   }
 }
