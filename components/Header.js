@@ -11,7 +11,7 @@ class Header extends Component {
           <div id="avatar">
             <Link href="/">
               <a>
-                <img id="avatar_img" src="../static/avatar.png" />
+                <img id="avatar_img" src="https://i.imgur.com/yPqtDkl.png" />
               </a>
             </Link>
           </div>

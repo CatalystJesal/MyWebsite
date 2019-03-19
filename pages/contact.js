@@ -20,10 +20,10 @@ export default () => (
               className="LI-simple-link"
               href="https://uk.linkedin.com/in/jesalpatel1?trk=profile-badge"
             >
-              <img src="../static/linkedin.png" />
+              <img src="https://i.imgur.com/yKjZRZe.png" />
             </a>
             <a className="LI-simple-link" href="https://twitter.com/Jesal_P24">
-              <img src="../static/twitter.png" />
+              <img src="https://i.imgur.com/JJtkRj5.png" />
             </a>
           </div>
         </div>

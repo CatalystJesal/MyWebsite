@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Layout from "../components/Layout";
 import Siema from "siema";
 import Head from "next/head";
+import fetch from "isomorphic-unfetch";
 
-class Projects extends Component {
+export default class extends React.Component {
   componentDidMount() {
     this.siema = new Siema({
       loop: false
@@ -29,7 +30,7 @@ class Projects extends Component {
             <div className="projects">
               <div className="siema">
                 <div>
-                  <img src="../static/Dextero.png" />
+                  <img src="https://i.imgur.com/EFoOtqJ.png" />
                   <div className="overlay">
                     <div id="overlay_title">Dextero</div>
                     <div id="overlay_description">
@@ -50,6 +51,14 @@ class Projects extends Component {
       </Layout>
     );
   }
-}
 
-export default Projects;
+  static async getInitialProps({ req }) {
+    //This fetch is the reason why my project won't build
+    const result = await fetch("http://localhost:3000/api/projects");
+    const projects = await result.json();
+
+    console.log(projects);
+
+    return { projects };
+  }
+}

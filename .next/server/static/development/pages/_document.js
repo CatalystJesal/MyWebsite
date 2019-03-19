@@ -486,6 +486,8 @@ var htmlescape_1 = __webpack_require__(/*! ../server/htmlescape */ "./node_modul
 
 var server_1 = __importDefault(__webpack_require__(/*! styled-jsx/server */ "./node_modules/styled-jsx/server.js"));
 
+var constants_1 = __webpack_require__(/*! next-server/constants */ "next-server/constants");
+
 var Document =
 /*#__PURE__*/
 function (_react_1$Component) {
@@ -605,9 +607,9 @@ function (_react_1$Component3) {
         return react_1.default.createElement("link", {
           key: file,
           nonce: _this.props.nonce,
-          rel: 'stylesheet',
+          rel: "stylesheet",
           href: "".concat(assetPrefix, "/_next/").concat(file),
-          crossOrigin: _this.props.crossOrigin || undefined
+          crossOrigin: _this.props.crossOrigin || "anonymous"
         });
       });
     }
@@ -622,12 +624,12 @@ function (_react_1$Component3) {
       var _devOnlyInvalidateCacheQueryString = this.context._devOnlyInvalidateCacheQueryString;
       return dynamicImports.map(function (bundle) {
         return react_1.default.createElement("link", {
-          rel: 'preload',
+          rel: "preload",
           key: bundle.file,
           href: "".concat(assetPrefix, "/_next/").concat(bundle.file).concat(_devOnlyInvalidateCacheQueryString),
-          as: 'script',
+          as: "script",
           nonce: _this2.props.nonce,
-          crossOrigin: _this2.props.crossOrigin || undefined
+          crossOrigin: _this2.props.crossOrigin || "anonymous"
         });
       });
     }
@@ -654,10 +656,10 @@ function (_react_1$Component3) {
         return react_1.default.createElement("link", {
           key: file,
           nonce: _this3.props.nonce,
-          rel: 'preload',
+          rel: "preload",
           href: "".concat(assetPrefix, "/_next/").concat(file).concat(_devOnlyInvalidateCacheQueryString),
-          as: 'script',
-          crossOrigin: _this3.props.crossOrigin || undefined
+          as: "script",
+          crossOrigin: _this3.props.crossOrigin || "anonymous"
         });
       });
     }
@@ -721,17 +723,17 @@ function (_react_1$Component3) {
         rel: "amphtml",
         href: "".concat(page, "?amp=1")
       }), page !== '/_error' && react_1.default.createElement("link", {
-        rel: 'preload',
+        rel: "preload",
         href: "".concat(assetPrefix, "/_next/static/").concat(buildId, "/pages").concat(getPagePathname(page)).concat(_devOnlyInvalidateCacheQueryString),
-        as: 'script',
+        as: "script",
         nonce: this.props.nonce,
-        crossOrigin: this.props.crossOrigin || undefined
+        crossOrigin: this.props.crossOrigin || "anonymous"
       }), react_1.default.createElement("link", {
-        rel: 'preload',
+        rel: "preload",
         href: "".concat(assetPrefix, "/_next/static/").concat(buildId, "/pages/_app.js").concat(_devOnlyInvalidateCacheQueryString),
-        as: 'script',
+        as: "script",
         nonce: this.props.nonce,
-        crossOrigin: this.props.crossOrigin || undefined
+        crossOrigin: this.props.crossOrigin || "anonymous"
       }), this.getPreloadDynamicChunks(), this.getPreloadMainLinks(), this.getCssLinks(), styles || null));
     }
   }]);
@@ -763,7 +765,7 @@ function (_react_1$Component4) {
     value: function render() {
       var html = this.context._documentProps.html;
       return react_1.default.createElement("div", {
-        id: '__next',
+        id: "__next",
         dangerouslySetInnerHTML: {
           __html: html
         }
@@ -804,7 +806,7 @@ function (_react_1$Component5) {
           key: bundle.file,
           src: "".concat(assetPrefix, "/_next/").concat(bundle.file).concat(_devOnlyInvalidateCacheQueryString),
           nonce: _this4.props.nonce,
-          crossOrigin: _this4.props.crossOrigin || undefined
+          crossOrigin: _this4.props.crossOrigin || "anonymous"
         });
       });
     }
@@ -833,7 +835,7 @@ function (_react_1$Component5) {
           src: "".concat(assetPrefix, "/_next/").concat(file).concat(_devOnlyInvalidateCacheQueryString),
           nonce: _this5.props.nonce,
           async: true,
-          crossOrigin: _this5.props.crossOrigin || undefined
+          crossOrigin: _this5.props.crossOrigin || "anonymous"
         });
       });
     }
@@ -851,7 +853,25 @@ function (_react_1$Component5) {
       var _devOnlyInvalidateCacheQueryString = this.context._devOnlyInvalidateCacheQueryString;
 
       if (amphtml) {
-        return null;
+        if (false) {}
+
+        var _devFiles = [constants_1.CLIENT_STATIC_FILES_RUNTIME_AMP, constants_1.CLIENT_STATIC_FILES_RUNTIME_WEBPACK];
+        return react_1.default.createElement(react_1.default.Fragment, null, staticMarkup ? null : react_1.default.createElement("script", {
+          id: "__NEXT_DATA__",
+          type: "application/json",
+          nonce: this.props.nonce,
+          crossOrigin: this.props.crossOrigin || "anonymous",
+          dangerouslySetInnerHTML: {
+            __html: NextScript.getInlineScriptSource(this.context._documentProps)
+          }
+        }), _devFiles ? _devFiles.map(function (file) {
+          return react_1.default.createElement("script", {
+            key: file,
+            src: "".concat(assetPrefix, "/_next/").concat(file).concat(_devOnlyInvalidateCacheQueryString),
+            nonce: _this6.props.nonce,
+            crossOrigin: _this6.props.crossOrigin || "anonymous"
+          });
+        }) : null);
       }
 
       var page = __NEXT_DATA__.page,
@@ -866,13 +886,13 @@ function (_react_1$Component5) {
           key: file,
           src: "".concat(assetPrefix, "/_next/").concat(file).concat(_devOnlyInvalidateCacheQueryString),
           nonce: _this6.props.nonce,
-          crossOrigin: _this6.props.crossOrigin || undefined
+          crossOrigin: _this6.props.crossOrigin || "anonymous"
         });
       }) : null, staticMarkup ? null : react_1.default.createElement("script", {
         id: "__NEXT_DATA__",
         type: "application/json",
         nonce: this.props.nonce,
-        crossOrigin: this.props.crossOrigin || undefined,
+        crossOrigin: this.props.crossOrigin || "anonymous",
         dangerouslySetInnerHTML: {
           __html: NextScript.getInlineScriptSource(this.context._documentProps)
         }
@@ -881,13 +901,13 @@ function (_react_1$Component5) {
         id: "__NEXT_PAGE__".concat(page),
         src: "".concat(assetPrefix, "/_next/static/").concat(buildId, "/pages").concat(getPagePathname(page)).concat(_devOnlyInvalidateCacheQueryString),
         nonce: this.props.nonce,
-        crossOrigin: this.props.crossOrigin || undefined
+        crossOrigin: this.props.crossOrigin || "anonymous"
       }), react_1.default.createElement("script", {
         async: true,
         id: "__NEXT_PAGE__/_app",
         src: "".concat(assetPrefix, "/_next/static/").concat(buildId, "/pages/_app.js").concat(_devOnlyInvalidateCacheQueryString),
         nonce: this.props.nonce,
-        crossOrigin: this.props.crossOrigin || undefined
+        crossOrigin: this.props.crossOrigin || "anonymous"
       }), staticMarkup ? null : this.getDynamicChunks(), staticMarkup ? null : this.getScripts());
     }
   }], [{
@@ -1875,6 +1895,17 @@ module.exports = require("core-js/library/fn/symbol");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/symbol/iterator");
+
+/***/ }),
+
+/***/ "next-server/constants":
+/*!****************************************!*\
+  !*** external "next-server/constants" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-server/constants");
 
 /***/ }),
 

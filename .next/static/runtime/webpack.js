@@ -63,7 +63,7 @@
 /******/ 		var script = document.createElement("script");
 /******/ 		script.charset = "utf-8";
 /******/ 		script.src = __webpack_require__.p + "static/webpack/" + chunkId + "." + hotCurrentHash + ".hot-update.js";
-/******/ 		if (null) script.crossOrigin = null;
+/******/ 		if ("anonymous") script.crossOrigin = "anonymous";
 /******/ 		document.head.appendChild(script);
 /******/ 	}
 /******/
@@ -112,7 +112,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "01e214572c4f3e0e5a95";
+/******/ 	var hotCurrentHash = "a13a512ee25978eed420";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -830,7 +830,9 @@
 /******/ 					script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 				}
 /******/ 				script.src = jsonpScriptSrc(chunkId);
-/******/
+/******/ 				if (script.src.indexOf(window.location.origin + '/') !== 0) {
+/******/ 					script.crossOrigin = "anonymous";
+/******/ 				}
 /******/ 				onScriptComplete = function (event) {
 /******/ 					// avoid mem leaks in IE.
 /******/ 					script.onerror = script.onload = null;
