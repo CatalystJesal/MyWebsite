@@ -60,7 +60,7 @@ export default class extends React.Component {
 
   static async getInitialProps({ req }) {
     const result = await fetch(`${server}/api/projects`);
-    const projects = await result.text();
+    const projects = await result.json();
 
     console.log(projects);
 

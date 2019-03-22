@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "index.js",
+    "dev": "nodemon server/index.js",
     "now-build": "next build",
+    "heroku-postbuild": "npm run build",
     "build": "next build",
     "start": "NODE_ENV=production node server/index.js"
   },

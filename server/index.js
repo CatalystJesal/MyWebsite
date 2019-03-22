@@ -13,9 +13,6 @@ const PORT = parseInt(process.env.PORT, 10) || 3000;
 
 var MONGO_URL = process.env.DB_URL;
 
-// var router = express.Router();
-// const project_controller = require("./project_controller");
-
 co(function*() {
   // Initialize the Next.js app
   yield app.prepare();
@@ -38,17 +35,15 @@ co(function*() {
   server.use(bodyParser.json());
   server.use(bodyParser.urlencoded({ extended: true }));
 
-  // router.get("/projects", project_controller.projects_list);
-
-  // server.use("/api", router);
-
   server.use("/api", routes);
 
   server.get("*", (req, res) => {
     return handle(req, res);
   });
 
-  server.listen(PORT);
+  if (dev) {
+    server.listen(PORT);
+  }
 }).catch(error => console.error(error.stack));
 
 // app
