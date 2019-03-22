@@ -41,9 +41,7 @@ co(function*() {
     return handle(req, res);
   });
 
-  if (dev) {
-    server.listen(PORT);
-  }
+  server.listen(PORT);
 }).catch(error => console.error(error.stack));
 
 // app

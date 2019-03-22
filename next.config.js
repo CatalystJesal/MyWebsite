@@ -35,6 +35,7 @@ if (!dev) {
             });
           return config;
         },
+        target: "serverless",
         crossOrigin: "anonymous",
         useFileSystemPublicRoutes: false
       })
