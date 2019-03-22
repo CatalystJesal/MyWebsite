@@ -11,7 +11,10 @@ const routes = require("./routes");
 var mongoose = require("mongoose");
 const PORT = parseInt(process.env.PORT, 10) || 3000;
 
-var MONGO_URL = process.env.DB_URL;
+//heroku doesn't seem to know about .env files so exposing the url for now...
+// var MONGO_URL = process.env.DB_URL;
+var MONGO_URL =
+  "mongodb+srv://admin:Lalu420@@cluster0-5cjs1.mongodb.net/MySite?retryWrites=true";
 
 co(function*() {
   // Initialize the Next.js app
