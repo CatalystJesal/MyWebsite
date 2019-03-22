@@ -1,64 +1,66 @@
+require("dotenv").config();
+const webpack = require("webpack");
 const withCSS = require("@zeit/next-css");
 const withImages = require("next-images");
-const withPlugins = require("next-compose-plugins");
-const fetch = require("isomorphic-unfetch");
+const nextEnv = require("next-env");
+const dotenvLoad = require("dotenv-load");
 
 const dev = process.env.NODE_ENV !== "production";
 
 if (!dev) {
-  module.exports = withCSS(
-    withImages({
-      target: "serverless",
-      crossOrigin: "anonymous",
-      async exportPathMap() {
-        const response = await fetch("http://localhost:3000/api/projects");
-        const projectList = await response.json();
+  dotenvLoad();
 
-        const projects = projectList.reduce(
-          (projects, project) =>
-            Object.assign({}, projects, {
-              [`/project/${project.id}`]: {
-                page: "/project",
-                query: { id: project.id }
+  const withNextEnv = nextEnv();
+
+  module.exports = withNextEnv(
+    withCSS(
+      withImages({
+        webpack: function(config) {
+          config.plugins.push(
+            new webpack.IgnorePlugin(/^encoding$/, /node-fetch/),
+            new webpack.DefinePlugin({
+              "process.env.DB_URL": process.env.DB_URL
+              // "process.env.NODE_ENV": JSON.stringify("production")
+            })
+          ),
+            config.module.rules.push({
+              test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+              use: {
+                loader: "url-loader",
+                options: {
+                  limit: 100000,
+                  name: "[name].[ext]"
+                }
               }
-            }),
-          {}
-        );
-        return Object.assign({}, projects, {
-          "/": { page: "/" }
-        });
-      },
-      webpack: function(config) {
-        config.module.rules.push({
-          test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-          use: {
-            loader: "url-loader",
-            options: {
-              limit: 100000,
-              name: "[name].[ext]"
-            }
-          }
-        });
-        return config;
-      }
-    })
+            });
+          return config;
+        },
+        target: "serverless",
+        crossOrigin: "anonymous",
+        useFileSystemPublicRoutes: false
+      })
+    )
   );
 } else {
   module.exports = withCSS(
     withImages({
-      target: "serverless",
-      crossOrigin: "anonymous",
       webpack: function(config) {
-        config.module.rules.push({
-          test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-          use: {
-            loader: "url-loader",
-            options: {
-              limit: 100000,
-              name: "[name].[ext]"
+        config.plugins.push(
+          new webpack.DefinePlugin({
+            "process.env.DB_URL": process.env.DB_URL
+            // "process.env.NODE_ENV": JSON.stringify("development")
+          })
+        ),
+          config.module.rules.push({
+            test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+            use: {
+              loader: "url-loader",
+              options: {
+                limit: 100000,
+                name: "[name].[ext]"
+              }
             }
-          }
-        });
+          });
         return config;
       }
     })

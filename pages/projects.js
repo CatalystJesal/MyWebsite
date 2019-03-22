@@ -4,10 +4,16 @@ import Siema from "siema";
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 
+import { server } from "../config";
+
 export default class extends React.Component {
   componentDidMount() {
     this.siema = new Siema({
       loop: false
+    });
+
+    this.setState({
+      projects: this.props.projects
     });
   }
 
@@ -53,9 +59,8 @@ export default class extends React.Component {
   }
 
   static async getInitialProps({ req }) {
-    //This fetch is the reason why my project won't build
-    const result = await fetch("http://localhost:3000/api/projects");
-    const projects = await result.json();
+    const result = await fetch(`${server}/api/projects`);
+    const projects = await result.text();
 
     console.log(projects);
 
