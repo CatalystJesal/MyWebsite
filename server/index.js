@@ -3,6 +3,7 @@ const http = require("http");
 const express = require("express");
 const next = require("next");
 const bodyParser = require("body-parser");
+const url = require("url");
 const co = require("co");
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -41,7 +42,8 @@ co(function*() {
   server.use("/api", routes);
 
   server.get("*", (req, res) => {
-    return handle(req, res);
+    const parsedUrl = url.parse(req.url, true);
+    return handle(req, res, parsedUrl);
   });
 
   server.listen(PORT);
