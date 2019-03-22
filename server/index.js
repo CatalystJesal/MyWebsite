@@ -9,7 +9,7 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const routes = require("./routes");
 var mongoose = require("mongoose");
-const PORT = parseInt(process.env.PORT, 10) || 3000;
+const PORT = process.env.PORT || 3000;
 
 //heroku doesn't seem to know about .env files so exposing the url for now...
 // var MONGO_URL = process.env.DB_URL;

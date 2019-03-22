@@ -62,7 +62,8 @@ if (!dev) {
             }
           });
         return config;
-      }
+      },
+      target: "server"
     })
   );
 }
