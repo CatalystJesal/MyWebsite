@@ -19,7 +19,7 @@ if (!dev) {
           config.plugins.push(
             new webpack.IgnorePlugin(/^encoding$/, /node-fetch/),
             new webpack.DefinePlugin({
-              "process.env.DB_URL": process.env.DB_URL
+              "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
               // "process.env.NODE_ENV": JSON.stringify("production")
             })
           ),
@@ -47,7 +47,7 @@ if (!dev) {
       webpack: function(config) {
         config.plugins.push(
           new webpack.DefinePlugin({
-            "process.env.DB_URL": process.env.DB_URL
+            "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
             // "process.env.NODE_ENV": JSON.stringify("development")
           })
         ),
