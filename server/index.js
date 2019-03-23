@@ -1,7 +1,6 @@
 require("dotenv").config();
-const http = require("http");
 const express = require("express");
-const next = require("next");
+const next = require("");
 const bodyParser = require("body-parser");
 const url = require("url");
 const co = require("co");
@@ -17,37 +16,39 @@ const PORT = process.env.PORT || 3000;
 var MONGO_URL =
   "mongodb+srv://admin:Lalu420@@cluster0-5cjs1.mongodb.net/MySite?retryWrites=true";
 
-co(function*() {
-  // Initialize the Next.js app
-  yield app.prepare();
+app
+  .prepare()
+  .then(() => {
+    // Initialize the Next.js app
 
-  mongoose.connect(MONGO_URL, { useNewUrlParser: true });
+    mongoose.connect(MONGO_URL, { useNewUrlParser: true });
 
-  mongoose.Promise = global.Promise;
+    mongoose.Promise = global.Promise;
 
-  mongoose.connection.on("open", function() {
-    console.log("mongodb is connected!!");
-  });
+    mongoose.connection.on("open", function() {
+      console.log("mongodb is connected!!");
+    });
 
-  const db = yield mongoose.connection;
+    const db = mongoose.connection;
 
-  model = db.modelNames();
+    model = db.modelNames();
 
-  db.on("error", console.error.bind(console, "MongoDB connection error:"));
+    db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-  const server = express();
-  server.use(bodyParser.json());
-  server.use(bodyParser.urlencoded({ extended: true }));
+    const server = express();
+    server.use(bodyParser.json());
+    server.use(bodyParser.urlencoded({ extended: true }));
 
-  server.use("/api", routes);
+    server.use("/api", routes);
 
-  server.get("*", (req, res) => {
-    const parsedUrl = url.parse(req.url, true);
-    return handle(req, res, parsedUrl);
-  });
+    server.get("*", (req, res) => {
+      const parsedUrl = url.parse(req.url, true);
+      return handle(req, res, parsedUrl);
+    });
 
-  server.listen(PORT);
-}).catch(error => console.error(error.stack));
+    server.listen(PORT);
+  })
+  .catch(error => console.error(error.stack));
 
 // app
 //   .prepare()
