@@ -13,7 +13,7 @@ export default class extends React.Component {
     });
 
     this.setState({
-      projects: this.props.projects
+      projects: this.props.projectData
     });
   }
 
@@ -25,7 +25,26 @@ export default class extends React.Component {
     this.siema.next();
   };
 
+  mapProjects = function(data) {
+    return Object.keys(data).map(key => {
+      const project = data[key];
+      const { _id: id, img, name, description, tech } = project;
+
+      return (
+        <div key={id} id={id}>
+          <img src={img} />
+          <div className="overlay">
+            <div id="overlay_title">{name}</div>
+            <div id="overlay_description">{description}</div>
+            <div id="overlay_tech">{tech}</div>
+          </div>
+        </div>
+      );
+    });
+  };
+
   render() {
+    const { projectData } = this.props;
     return (
       <Layout>
         <Head>
@@ -34,21 +53,7 @@ export default class extends React.Component {
         <div className="container">
           <section>
             <div className="projects">
-              <div className="siema">
-                <div>
-                  <img src="https://i.imgur.com/EFoOtqJ.png" />
-                  <div className="overlay">
-                    <div id="overlay_title">Dextero</div>
-                    <div id="overlay_description">
-                      I developed a multi-touch mobile game for stroke patients
-                      to rehabilitate their finger coordination and dexterity.
-                    </div>
-                    <div id="overlay_tech">Java, Android, LibGDX, SQLite</div>
-                  </div>
-                </div>
-              </div>
-              <div />
-
+              <div className="siema">{this.mapProjects(projectData)}</div>
               <button onClick={this.prev}>Prev</button>
               <button onClick={this.next}>Next</button>
             </div>
@@ -59,11 +64,14 @@ export default class extends React.Component {
   }
 
   static async getInitialProps({ req }) {
-    const result = await fetch(`${server}/api/projects`);
-    const projects = await result.json();
-
-    console.log(projects);
-
-    return { projects };
+    const apiUrl = `${server}/api/projects`;
+    try {
+      const response = await fetch(apiUrl);
+      const projectData = await response.json();
+      return { projectData };
+    } catch (ex) {
+      console.log(`Unable to fetch data from"  ${apiUrl}   -   ${ex}`);
+      return { projectData: null };
+    }
   }
 }

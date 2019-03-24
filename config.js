@@ -1,5 +1,5 @@
 const dev = process.env.NODE_ENV !== "production";
 
 export const server = dev
-  ? "http://localhost:3000"
-  : "https://jesalpatel.herokuapp.com";
+  ? "http://localhost:8000"
+  : "https://website.jesal.now.sh";

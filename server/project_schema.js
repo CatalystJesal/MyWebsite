@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var ProjectSchema = new Schema(
+var projectSchema = new Schema(
   {
     name: String,
     description: String,
@@ -11,4 +11,4 @@ var ProjectSchema = new Schema(
   { collection: "project" }
 );
 
-module.exports = mongoose.model("Project", ProjectSchema);
+module.exports = mongoose.model("Project", projectSchema);

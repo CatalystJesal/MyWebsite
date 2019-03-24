@@ -1,8 +1,20 @@
-const express = require("express");
-const router = express.Router();
+const server = require("./server");
+const Project = require("./project_schema");
+var connectToDatabase = require("./db");
 
-const project_controller = require("./project_controller");
+try {
+  server.get("/api/projects", (req, res) => {
+    //Seems like we must always check/ensure we are connected to
+    //the db as we're making the request as it times out if nothing happens
+    //in that time...
+    connectToDatabase();
 
-router.get("/projects", project_controller.projects_list);
+    Project.find((err, projects) => {
+      res.send(projects);
+    });
+  });
 
-module.exports = router;
+  module.exports = server;
+} catch (ex) {
+  console.log("API Error", ex);
+}

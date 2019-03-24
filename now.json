@@ -1,7 +1,21 @@
 {
   "version": 2,
   "builds": [
-    { "src": "server/index.js", "use": "@now/node" },
+    { "src": "server/*.js", "use": "@now/node@canary" },
     { "src": "package.json", "use": "@now/next" }
-  ]
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/server/routes.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+
+  "env": {
+    "DB_URL": "@db-url"
+  }
 }
