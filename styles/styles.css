@@ -95,7 +95,7 @@ nav {
   background-image: url("https://i.imgur.com/xy8Uwg5.png");
 }
 
-.container #nav_li {
+.container .nav_li {
   list-style-type: none;
   display: inline-flex;
   /* border: solid blue; */
@@ -104,7 +104,7 @@ nav {
   margin: auto;
 }
 
-#nav_li a {
+.nav_li a {
   font-size: 1.8em;
   color: white;
   text-decoration: none;
@@ -113,7 +113,7 @@ nav {
   /* border: solid blue; */
 }
 
-#nav_li a:hover {
+.nav_li a:hover {
   color: rgb(119, 118, 118);
 }
 
@@ -291,14 +291,6 @@ nav {
 }
 
 @media screen and (max-width: 390px) {
-  /* .container #nav_ul {
-    display: inline-block;
-  }
-
-  .container #nav_li {
-    display: inline-block;
-  } */
-
   .container #nav_links {
     font-size: 1.4em;
   }
@@ -325,17 +317,17 @@ nav {
     min-height: 50vh;
   }
 
-  #overlay_title {
+  .overlay_title {
     /* font-size: 1.5vw; */
     font-size: 2.9vw;
   }
 
-  #overlay_description {
+  .overlay_description {
     font-size: 2.6vw;
     width: 50vw;
   }
 
-  #overlay_tech {
+  .overlay_tech {
     font-size: 2.6vw;
   }
 }
