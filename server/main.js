@@ -10,7 +10,7 @@ const api = require("./routes");
 
 const dev = process.env.NODE_ENV !== "production";
 
-server.use(cors());
+// server.use(cors());
 
 server.use(api);
 

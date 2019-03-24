@@ -4,9 +4,6 @@ var connectToDatabase = require("./db");
 
 try {
   server.get("/api/projects", (req, res) => {
-    //Seems like we must always check/ensure we are connected to
-    //the db as we're making the request as it times out if nothing happens
-    //in that time...
     connectToDatabase();
 
     Project.find((err, projects) => {

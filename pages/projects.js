@@ -25,10 +25,9 @@ export default class extends React.Component {
     this.siema.next();
   };
 
-  mapProjects = function(data) {
-    return Object.keys(data).map(key => {
-      const project = data[key];
-      const { _id: id, img, name, description, tech } = project;
+  mapProjects = function(projects) {
+    return projects.map(doc => {
+      const { _id: id, img, name, description, tech } = doc;
 
       return (
         <div key={id} id={id}>
@@ -68,6 +67,7 @@ export default class extends React.Component {
     try {
       const response = await fetch(apiUrl);
       const projectData = await response.json();
+
       return { projectData };
     } catch (ex) {
       console.log(`Unable to fetch data from"  ${apiUrl}   -   ${ex}`);
