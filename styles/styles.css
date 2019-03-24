@@ -184,7 +184,7 @@ nav {
   overflow: hidden;
 }
 
-#overlay_title {
+.overlay_title {
   /* font-size: 1.9em; */
   font-size: 1.5vw;
   /* font-size: 30px; */
@@ -198,7 +198,7 @@ nav {
   text-align: center;
 }
 
-#overlay_description {
+.overlay_description {
   /* font-size: 1.4em; */
   font-size: 1.2vw;
   /* font-size: 23px; */
@@ -213,7 +213,7 @@ nav {
   width: 36vw;
 }
 
-#overlay_tech {
+.overlay_tech {
   /* font-size: 1.4em; */
   font-size: 1.2vw;
   position: absolute;

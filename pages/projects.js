@@ -34,9 +34,9 @@ export default class extends React.Component {
         <div key={id} id={id}>
           <img src={img} />
           <div className="overlay">
-            <div id="overlay_title">{name}</div>
-            <div id="overlay_description">{description}</div>
-            <div id="overlay_tech">{tech}</div>
+            <div className="overlay_title">{name}</div>
+            <div className="overlay_description">{description}</div>
+            <div className="overlay_tech">{tech}</div>
           </div>
         </div>
       );
