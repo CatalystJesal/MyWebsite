@@ -30,7 +30,8 @@ export default () => (
             developer after graduating. I may have finished my studies but I
             remain a student as I try to learn new skills/technologies in my
             spare time. Take this website as an example, learning to develop
-            skills in HTML5, CSS3, JavaScript, Next.js, React.js and Node.js.
+            skills in HTML5, CSS3, JavaScript, Next.js, React.js, MongoDB and
+            Node.js.
           </p>
           <p>
             Outside of development my interests involve: volunteering for
