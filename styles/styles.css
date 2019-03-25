@@ -86,8 +86,9 @@ footer {
 nav {
   min-width: 100vw;
   min-height: 6vh;
-  display: flex;
-  justify-content: center;
+
+  text-align: center;
+  float: none;
   position: relative;
   border-top: solid white;
   border-bottom: solid white;
@@ -97,18 +98,19 @@ nav {
 
 .container .nav_li {
   list-style-type: none;
-  display: inline;
-  flex-direction: row;
-  margin-left: 2vw;
-  margin-right: 2vw;
+  display: inline-block;
+  float: none;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 .nav_li a {
   font-size: 1.8em;
   color: white;
   text-decoration: none;
-  /* margin-left: 2vw;
-  margin-right: 0vw; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .nav_li a:hover {
@@ -337,11 +339,11 @@ nav {
   }
 }
 
-@media screen and (max-width: 275px) {
+@media screen and (max-width: 305px) {
   .container .nav_li {
     position: relative;
-    display: block;
-    left: -7vw;
+    display: inline-block;
+    left: -9vw;
   }
 }
 
