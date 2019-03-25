@@ -86,9 +86,8 @@ footer {
 nav {
   min-width: 100vw;
   min-height: 6vh;
-
+  justify-content: space-around;
   text-align: center;
-  float: none;
   position: relative;
   border-top: solid white;
   border-bottom: solid white;
@@ -97,11 +96,11 @@ nav {
 }
 
 .container .nav_li {
+  position: relative;
   list-style-type: none;
   display: inline-block;
-  float: none;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .nav_li a {
@@ -339,11 +338,17 @@ nav {
   }
 }
 
-@media screen and (max-width: 305px) {
+@media screen and (max-width: 340px) {
   .container .nav_li {
     position: relative;
     display: inline-block;
-    left: -9vw;
+    left: -5%;
+  }
+}
+
+@media screen and (max-width: 262px) {
+  .container .nav_li {
+    left: -10%;
   }
 }
 
