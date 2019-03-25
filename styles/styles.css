@@ -84,9 +84,10 @@ footer {
 }
 
 nav {
+  min-width: 100vw;
   min-height: 6vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   position: relative;
   border-top: solid white;
   border-bottom: solid white;
@@ -96,12 +97,10 @@ nav {
 
 .container .nav_li {
   list-style-type: none;
-  display: inline-flex;
-  /* border: solid blue; */
-  position: relative;
-  margin-left: 3vw;
-  margin-right: 3vw;
-  /* margin: auto; */
+  display: inline;
+  flex-direction: row;
+  margin-left: 2vw;
+  margin-right: 2vw;
 }
 
 .nav_li a {
@@ -110,7 +109,6 @@ nav {
   text-decoration: none;
   /* margin-left: 2vw;
   margin-right: 0vw; */
-  justify-content: space-around;
 }
 
 .nav_li a:hover {
@@ -293,15 +291,15 @@ nav {
   }
 }
 
-@media screen and (max-width: 390px) {
+/* @media screen and (max-width: 390px) {
   .nav_li a {
     font-size: 1.4em;
   }
-  /* 
+  
   footer {
     font-size: 3vw;
-  } */
-}
+  }
+} */
 
 @media screen and (max-height: 900px) {
   body {
@@ -339,15 +337,11 @@ nav {
   }
 }
 
-/* @media screen and (max-height: 850px) {
-  footer {
-    font-size: 1.2em;
-  }
-} */
-
-@media screen and (max-width: 230px) {
+@media screen and (max-width: 275px) {
   .container .nav_li {
+    position: relative;
     display: block;
+    left: -7vw;
   }
 }
 
@@ -361,6 +355,5 @@ nav {
     display: block;
     width: 65px;
     height: 85px;
-    /* margin: auto; */
   }
 }
