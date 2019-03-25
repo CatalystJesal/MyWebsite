@@ -74,8 +74,7 @@ footer {
 #avatar {
   min-width: 180px;
   position: relative;
-  height: 181px;
-  top: 1px;
+  top: 0.7vh;
 }
 
 /* Container navigation */
@@ -87,8 +86,8 @@ footer {
 nav {
   min-height: 6vh;
   display: flex;
-  justify-content: center;
-  /* position: relative; */
+  justify-content: space-around;
+  position: relative;
   border-top: solid white;
   border-bottom: solid white;
   background-color: #333333;
@@ -100,17 +99,18 @@ nav {
   display: inline-flex;
   /* border: solid blue; */
   position: relative;
-  justify-content: center;
-  margin: auto;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  /* margin: auto; */
 }
 
 .nav_li a {
   font-size: 1.8em;
   color: white;
   text-decoration: none;
-  padding-left: 6vw;
-  padding-right: 6vw;
-  /* border: solid blue; */
+  /* margin-left: 2vw;
+  margin-right: 0vw; */
+  justify-content: space-around;
 }
 
 .nav_li a:hover {
@@ -153,15 +153,19 @@ nav {
 .projects {
   margin: auto;
   position: relative;
-  width: 40vw;
+  /* width: 40vw; */
+  width: 700px;
+  padding-right: 20vw;
+  padding-left: 20vw;
   min-height: 53vh;
   outline: none;
+  border: solid 10px black;
 }
 
 .projects img {
   position: absolute;
-
-  width: 40vw;
+  /* width: 40vw; */
+  width: 700px;
   height: 50vh;
 }
 
@@ -171,7 +175,8 @@ nav {
   color: white;
   position: relative;
   height: 50vh;
-  width: 40vw;
+  /* width: 40vw; */
+  width: 700px;
   top: 0;
   left: 0;
   opacity: 0;
@@ -229,7 +234,7 @@ nav {
 .projects button {
   position: relative;
   margin-top: 5px;
-  margin-left: 10px;
+  margin-right: 10px;
   color: white;
   background: #333333;
   border: none;
@@ -273,7 +278,6 @@ nav {
   height: 120px;
   height: auto;
   margin: auto;
-  /* border: solid black; */
 }
 
 /* For phone devices */
@@ -291,9 +295,13 @@ nav {
 }
 
 @media screen and (max-width: 390px) {
-  .container #nav_links {
+  .nav_li a {
     font-size: 1.4em;
   }
+  /* 
+  footer {
+    font-size: 3vw;
+  } */
 }
 
 @media screen and (max-height: 900px) {
@@ -302,18 +310,18 @@ nav {
   }
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 780px) {
   .projects {
-    min-width: 60vw;
+    width: 70vw;
   }
 
   .projects img {
-    min-width: 60vw;
+    width: 70vw;
     min-height: 50vh;
   }
 
   .overlay {
-    min-width: 60vw;
+    width: 70vw;
     min-height: 50vh;
   }
 
@@ -332,22 +340,21 @@ nav {
   }
 }
 
-@media screen and (max-height: 850px) {
+/* @media screen and (max-height: 850px) {
   footer {
     font-size: 1.2em;
   }
-}
+} */
 
-@media screen and (max-height: 605px) {
-  footer {
-    font-size: 1em;
+@media screen and (max-width: 230px) {
+  .container .nav_li {
+    display: block;
   }
 }
 
 @media screen and (max-width: 240px) {
   #links {
     display: block;
-    border: solid black;
     top: 0px;
   }
 
