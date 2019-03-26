@@ -11,10 +11,6 @@ body {
   position: relative;
   min-height: 84vh;
   background: white;
-  /* margin: 0; */
-  /* background-repeat: no-repeat; */
-  /* background-position: fixed; */
-  /* background-size: cover; */
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -75,6 +71,7 @@ footer {
   min-width: 180px;
   position: relative;
   top: 0.7vh;
+  padding: 0;
 }
 
 /* Container navigation */
@@ -86,9 +83,9 @@ footer {
 nav {
   min-width: 100vw;
   min-height: 6vh;
-  display: fixed;
-  /* justify-content: space-evenly; */
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
   position: relative;
   border-top: solid white;
   border-bottom: solid white;
@@ -96,9 +93,15 @@ nav {
   background-image: url("https://i.imgur.com/xy8Uwg5.png");
 }
 
+.container ul {
+  list-style-type: none;
+  /* padding: 0 neccessary to ensure the links stay horizontally centrally aligned */
+  padding: 0;
+  /* border: solid black; */
+}
+
 .container .nav_li {
   position: relative;
-  list-style-type: none;
   padding: 0px 3vw;
   display: inline-block;
   /* margin-left: 2%;
