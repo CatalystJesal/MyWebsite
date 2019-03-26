@@ -10,7 +10,8 @@ const api = require("./routes");
 
 const dev = process.env.NODE_ENV !== "production";
 
-// server.use(cors());
+//sometimes we're unable to get the data for some odd reason, so we have to use cors()
+server.use(cors());
 
 server.use(api);
 

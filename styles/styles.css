@@ -86,7 +86,6 @@ footer {
 nav {
   min-width: 100vw;
   min-height: 6vh;
-  justify-content: space-around;
   text-align: center;
   position: relative;
   border-top: solid white;
@@ -96,20 +95,22 @@ nav {
 }
 
 .container .nav_li {
-  position: relative;
+  /* position: relative; */
   list-style-type: none;
-  display: inline-block;
+  display: inline;
   margin-left: 2%;
   margin-right: 2%;
+  /* border: solid black; */
 }
 
 .nav_li a {
-  font-size: 1.8em;
+  font-size: 1.6em;
   color: white;
   text-decoration: none;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /* border: solid black; */
 }
 
 .nav_li a:hover {
