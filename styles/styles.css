@@ -347,17 +347,10 @@ nav {
   }
 }
 
-@media screen and (max-width: 340px) {
-  .container .nav_li {
-    position: relative;
-    display: inline-block;
-    /* left: -5%; */
-  }
-}
-
-@media screen and (max-width: 262px) {
-  .container .nav_li {
-    left: -10%;
+@media screen and (max-width: 208px) {
+  .container ul {
+    display: block;
+    text-align: center;
   }
 }
 
