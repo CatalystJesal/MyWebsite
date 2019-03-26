@@ -197,8 +197,8 @@ nav {
 }
 
 .overlay_title {
-  /* font-size: 1.9em; */
-  font-size: 1.5vw;
+  font-size: 1.9em;
+  /* font-size: 1.5vw; */
   /* font-size: 30px; */
   position: absolute;
   opacity: 1;
@@ -211,8 +211,8 @@ nav {
 }
 
 .overlay_description {
-  /* font-size: 1.4em; */
-  font-size: 1.2vw;
+  font-size: 1.4em;
+  /* font-size: 1.2vw; */
   /* font-size: 23px; */
   position: absolute;
   opacity: 1;
@@ -222,12 +222,13 @@ nav {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 36vw;
+
+  width: 600px;
 }
 
 .overlay_tech {
-  /* font-size: 1.4em; */
-  font-size: 1.2vw;
+  font-size: 1.4em;
+  /* font-size: 1.2vw; */
   position: absolute;
   opacity: 1;
   top: 80%;
@@ -333,7 +334,6 @@ nav {
   }
 
   .overlay_title {
-    /* font-size: 1.5vw; */
     font-size: 2.9vw;
   }
 
