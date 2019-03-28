@@ -15,6 +15,11 @@ if (dev) {
           new webpack.DefinePlugin({
             "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
             // "process.env.NODE_ENV": JSON.stringify("development")
+          }),
+
+          new webpack.ProvidePlugin({
+            $: "jQuery",
+            jQuery: "jquery"
           })
         ),
           config.module.rules.push({
@@ -45,6 +50,10 @@ if (dev) {
             new webpack.DefinePlugin({
               "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
               // "process.env.NODE_ENV": JSON.stringify("production")
+            }),
+            new webpack.ProvidePlugin({
+              $: "jQuery",
+              jQuery: "jquery"
             })
           ),
             config.module.rules.push({

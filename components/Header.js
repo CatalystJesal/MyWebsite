@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Link from "next/link";
 import "../styles/styles.css";
+import Link from "next/link";
 
 class Header extends Component {
   state = {};

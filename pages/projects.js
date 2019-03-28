@@ -8,24 +8,29 @@ import { server } from "../config";
 
 export default class extends React.Component {
   componentDidMount() {
-    this.siema = new Siema({
-      loop: false
-    });
-
     this.setState({
       projects: this.props.projectData
     });
   }
 
-  prev = () => {
-    this.siema.prev();
-  };
-
-  next = () => {
-    this.siema.next();
-  };
-
   mapProjects = function(projects) {
+    return projects.map(doc => {
+      const { _id: id, img, name, description, tech } = doc;
+
+      return (
+        <div key={id} id={id}>
+          <img src={img} />
+          <div className="overlay">
+            <div className="overlay_title">{name}</div>
+            <div className="overlay_description">{description}</div>
+            <div className="overlay_tech">{tech}</div>
+          </div>
+        </div>
+      );
+    });
+  };
+
+  mapImages = function(projects) {
     return projects.map(doc => {
       const { _id: id, img, name, description, tech } = doc;
 
@@ -51,11 +56,7 @@ export default class extends React.Component {
         </Head>
         <div className="container">
           <section>
-            <div className="projects">
-              <div className="siema">{this.mapProjects(projectData)}</div>
-              <button onClick={this.prev}>Prev</button>
-              <button onClick={this.next}>Next</button>
-            </div>
+            <div className="grid-container">{this.mapImages(projectData)}</div>
           </section>
         </div>
       </Layout>

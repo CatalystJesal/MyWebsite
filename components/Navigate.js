@@ -1,5 +1,5 @@
-import Link from "next/link";
 import "../styles/styles.css";
+import Link from "next/link";
 
 const Navigation = () => {
   return (
