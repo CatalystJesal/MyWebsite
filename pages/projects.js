@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Layout from "../components/Layout";
-import Siema from "siema";
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 
