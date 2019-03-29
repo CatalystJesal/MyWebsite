@@ -38,6 +38,12 @@ export default class extends React.Component {
         </Head>
         <div className="container">
           <section>
+            <div className="project-description">
+              <p>
+                Here are some of the projects I have worked on during my spare
+                time:
+              </p>
+            </div>
             <div className="grid-container">
               {this.mapProjects(projectData)}
             </div>

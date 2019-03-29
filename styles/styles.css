@@ -145,7 +145,26 @@ nav {
   text-align: center;
 }
 
-/* Projects grid container */
+/* Projects */
+
+.project-description {
+  position: absolute;
+  display: flex;
+  padding: 10px;
+  margin: auto;
+  justify-content: center;
+  /* border: solid black; */
+}
+
+.project-description h2 {
+  font-style: normal;
+}
+
+.project-description p {
+  color: white;
+  font-size: 1em;
+  text-align: center;
+}
 
 .grid-container {
   min-height: 0;
@@ -153,7 +172,6 @@ nav {
   margin: 90px 0;
   display: grid;
   grid-gap: 10px 5px;
-  /* background-color: #2196f3; */
   grid-template-columns: auto auto;
   outline: none;
   /* border: solid black; */
