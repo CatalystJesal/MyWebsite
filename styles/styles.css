@@ -263,7 +263,7 @@ nav {
 /* Contact  */
 
 .contact {
-  margin: auto;
+  margin: 10px;
   text-align: center;
   /* border: solid #333333; */
   /* width: 35vw; */
@@ -278,6 +278,58 @@ nav {
   margin: auto;
   text-align: center;
   width: 35vw;
+}
+
+.form-container {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  /* border: solid 3px black; */
+}
+
+.form-container form {
+  /* border: solid 3px blue; */
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container label {
+  color: white;
+  position: relative;
+}
+
+.form-container form input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 60%;
+  /* width: 400px; */
+  padding: 10px;
+  border: 4px solid #333333;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 11px;
+}
+
+.form-container form textarea {
+  width: 60%;
+  height: 200px;
+  resize: none;
+}
+
+input[type="submit"] {
+  font-size: 1em;
+  color: white;
+  background-color: #2b2929b4;
+  border: none;
+  padding: 7px;
+}
+
+input[type="submit"]:hover {
+  background-color: #333333;
 }
 
 /* For phone devices */
