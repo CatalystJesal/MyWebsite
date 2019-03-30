@@ -19,11 +19,12 @@ class Header extends Component {
             <a
               className="LI-simple-link"
               href="https://uk.linkedin.com/in/jesalpatel1?trk=profile-badge"
+              target="_blank"
             >
               <img src="https://i.imgur.com/FyP38AW.png" />
             </a>
             <a className="LI-simple-link" href="https://twitter.com/Jesal_P24">
-              <img src="https://i.imgur.com/tcuU1EE.png" />
+              <img src="https://i.imgur.com/tcuU1EE.png" target="_blank" />
             </a>
           </div>
         </header>
