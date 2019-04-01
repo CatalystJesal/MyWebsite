@@ -13,7 +13,7 @@ if (dev) {
       webpack: function(config) {
         config.plugins.push(
           new webpack.DefinePlugin({
-            "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
+            // "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
             // "process.env.NODE_ENV": JSON.stringify("development")
           }),
 
@@ -48,7 +48,7 @@ if (dev) {
           config.plugins.push(
             new webpack.IgnorePlugin(/^encoding$/, /node-fetch/),
             new webpack.DefinePlugin({
-              "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
+              // "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
               // "process.env.NODE_ENV": JSON.stringify("production")
             }),
             new webpack.ProvidePlugin({
@@ -80,64 +80,3 @@ if (dev) {
     ? require("next/constants")
     : require("next-server/constants");
 }
-
-// if (!dev) {
-//   dotenvLoad();
-
-//   const withNextEnv = nextEnv();
-
-//   module.exports = withNextEnv(
-//     withCSS(
-//       withImages({
-//         webpack: function(config) {
-//           config.plugins.push(
-//             new webpack.IgnorePlugin(/^encoding$/, /node-fetch/),
-//             new webpack.DefinePlugin({
-//               "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
-//               // "process.env.NODE_ENV": JSON.stringify("production")
-//             })
-//           ),
-//             config.module.rules.push({
-//               test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-//               use: {
-//                 loader: "url-loader",
-//                 options: {
-//                   limit: 100000,
-//                   name: "[name].[ext]"
-//                 }
-//               }
-//             });
-
-//           return config;
-//         },
-//         target: "server",
-//         crossOrigin: "anonymous",
-//         useFileSystemPublicRoutes: false
-//       })
-//     )
-//   );
-// } else {
-//   module.exports = withCSS(
-//     withImages({
-//       webpack: function(config) {
-//         config.plugins.push(
-//           new webpack.DefinePlugin({
-//             "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
-//             // "process.env.NODE_ENV": JSON.stringify("development")
-//           })
-//         ),
-//           config.module.rules.push({
-//             test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-//             use: {
-//               loader: "url-loader",
-//               options: {
-//                 limit: 100000,
-//                 name: "[name].[ext]"
-//               }
-//             }
-//           });
-//         return config;
-//       }
-//     })
-//   );
-// }

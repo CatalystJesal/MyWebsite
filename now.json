@@ -16,6 +16,8 @@
   ],
 
   "env": {
-    "DB_URL": "@db-url"
+    "DB_URL": "@db-url",
+    "EMAIL_ADDRESS": "jesal.patel.1@hotmail.co.uk",
+    "SENDGRID_API": "@sendgrid-api-key"
   }
 }
