@@ -1,9 +1,7 @@
 const server = require("./server");
 const Project = require("./project_schema");
 var connectToDatabase = require("./db");
-const nodeMailer = require("nodemailer");
 const sgMail = require("@sendgrid/mail");
-const xoauth2 = require("xoauth2");
 
 require("dotenv").config();
 
