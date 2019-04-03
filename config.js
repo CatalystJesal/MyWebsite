@@ -1,5 +1,3 @@
 const dev = process.env.NODE_ENV !== "production";
 
-export const server = dev
-  ? "http://localhost:8000"
-  : "https://website.jesal.now.sh";
+export const server = dev ? "http://localhost:8000" : "website.jesal.now.sh";

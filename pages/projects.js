@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Layout from "../components/Layout";
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
-
 import { server } from "../config";
 
 export default class extends React.Component {

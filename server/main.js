@@ -1,9 +1,6 @@
 require("dotenv").config();
 
 const express = require("express");
-
-const bodyParser = require("body-parser");
-const cors = require("cors");
 const server = express();
 const PORT = process.env.PORT || 8000;
 
@@ -11,13 +8,11 @@ const api = require("./routes");
 
 const dev = process.env.NODE_ENV !== "production";
 
-//sometimes we're unable to get the data for some odd reason, so we have to use cors()
-server.use(cors());
-server.use(bodyParser.urlencoded({ extended: true }));
-server.use(bodyParser.json());
 server.use(api);
 
-//IMPORTANT: Don't allow the server to listen on production, else it will fail in deployment
+// IMPORTANT: Don't allow the server to listen on production,
+// else it will fail in deployment with @now/node, it would need
+//@now/node-server or just point the build path to server/routes.js
 
 if (dev) {
   server.listen(PORT, () =>

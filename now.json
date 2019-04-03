@@ -1,16 +1,13 @@
 {
   "version": 2,
+  "alias": "jesal-patel.com",
   "builds": [
-    { "src": "server/*.js", "use": "@now/node@canary" },
+    { "src": "server/routes.js", "use": "@now/node" },
     { "src": "package.json", "use": "@now/next" }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server/routes.js"
-    },
-    {
-      "src": "/(.*)",
       "dest": "/server/routes.js"
     },
     {
@@ -21,7 +18,13 @@
 
   "env": {
     "DB_URL": "@db-url",
-    "EMAIL_ADDRESS": "jesal.patel.1@hotmail.co.uk",
+    "EMAIL_ADDRESS": "@email-address",
+    "GOOGLE_API_KEY": "@google-api-key",
+    "GOOLE_CLIENT_ID": "@google-client-id",
+    "GOOGLE_CLIENT_SECRET": "@google-client-secret",
+    "GOOGLE_REFRESH_TOKEN": "@google-refresh-token",
+    "SES_ACCESS": "@aws-access-key",
+    "SES_SECRET": "@aws-secret",
     "SENDGRID_API": "@sendgrid-api-key"
   }
 }
