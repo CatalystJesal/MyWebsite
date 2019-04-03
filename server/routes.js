@@ -1,7 +1,7 @@
 const server = require("./server");
 const Project = require("./project_schema");
 var connectToDatabase = require("./db");
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 const aws = require("aws-sdk");
 
 //This file is the entry point for production mode
