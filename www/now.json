@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "alias": ["www.jesal-patel.com"],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://jesal-patel.com/$1" }
+    }
+  ]
+}
