@@ -11,22 +11,16 @@ if (dev) {
   module.exports = withCSS(
     withImages({
       webpack: function(config) {
-        config.plugins.push(
-          new webpack.DefinePlugin({
-            // "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
-            // "process.env.NODE_ENV": JSON.stringify("development")
-          })
-        ),
-          config.module.rules.push({
-            test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-            use: {
-              loader: "url-loader",
-              options: {
-                limit: 100000,
-                name: "[name].[ext]"
-              }
+        config.module.rules.push({
+          test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+          use: {
+            loader: "url-loader",
+            options: {
+              limit: 100000,
+              name: "[name].[ext]"
             }
-          });
+          }
+        });
         return config;
       }
     })
@@ -41,15 +35,7 @@ if (dev) {
       withImages({
         webpack: function(config) {
           config.plugins.push(
-            new webpack.IgnorePlugin(/^encoding$/, /node-fetch/),
-            new webpack.DefinePlugin({
-              // "process.env.DB_URL": JSON.stringify(process.env.DB_URL)
-              // "process.env.NODE_ENV": JSON.stringify("production")
-            }),
-            new webpack.ProvidePlugin({
-              $: "jQuery",
-              jQuery: "jquery"
-            })
+            new webpack.IgnorePlugin(/^encoding$/, /node-fetch/)
           ),
             config.module.rules.push({
               test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
