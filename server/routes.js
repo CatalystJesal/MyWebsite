@@ -2,9 +2,18 @@ const server = require("./server");
 const Project = require("./project_schema");
 var connectToDatabase = require("./db");
 const sgMail = require("@sendgrid/mail");
+const nodemailer = require("nodemailer");
+const aws = require("aws-sdk");
 
 //This file is the entry point for production mode
 require("dotenv").config();
+
+var config = new aws.Config({
+  accessKeyId: process.env.SES_ACCESS,
+  secretAccessKey: process.env.SES_SECRET,
+  region: "eu-west-1"
+});
+aws.config = config;
 
 try {
   server.get("/api/projects", (req, res) => {
@@ -24,20 +33,30 @@ try {
 
     console.log(`${name} <${email}> ${message}`);
 
-    sgMail.setApiKey(process.env.SENDGRID_API);
+    let transporter = nodemailer.createTransport({
+      SES: new aws.SES({
+        apiVersion: "latest"
+      })
+    });
 
-    const msg = {
-      to: process.env.EMAIL_ADDRESS,
-      cc: email,
-      from: "no-reply@jesal-patel.com",
-      subject: `${name} <${email}>`,
-      text: message
-    };
-
-    //It was all in the await call and making the function async! All this time!
-    await sgMail.send(msg);
-
-    res.end("Message has been sent");
+    const info = await transporter.sendMail(
+      {
+        from: "no-reply@jesal-patel.com",
+        to: process.env.EMAIL_ADDRESS,
+        Cc: email,
+        subject: "A message from Jesal-Patel.com!",
+        text: message
+      },
+      (err, info) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(info.envelope);
+          console.log(info.messageId);
+          res.end("Message has been sent");
+        }
+      }
+    );
   });
 } catch (ex) {
   console.log("Email Not Sent", ex);
