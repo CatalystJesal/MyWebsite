@@ -28,7 +28,8 @@ try {
 
     const msg = {
       to: process.env.EMAIL_ADDRESS,
-      from: "mail@jesal-patel.com",
+      cc: email,
+      from: "no-reply@jesal-patel.com",
       subject: `${name} <${email}>`,
       text: message
     };
