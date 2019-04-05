@@ -1,7 +1,6 @@
 const server = require("./server");
 const Project = require("./project_schema");
 var connectToDatabase = require("./db");
-const sgMail = require("@sendgrid/mail");
 const nodemailer = require("nodemailer");
 const aws = require("aws-sdk");
 
@@ -43,7 +42,7 @@ try {
       {
         from: "no-reply@jesal-patel.com",
         to: process.env.EMAIL_ADDRESS,
-        Cc: email,
+        cc: email,
         subject: "A message from Jesal-Patel.com!",
         text: message
       },
