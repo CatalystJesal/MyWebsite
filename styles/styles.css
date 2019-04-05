@@ -130,7 +130,7 @@ nav {
 /* Container <section>  */
 
 .container section {
-  min-height: 65vh;
+  min-height: 65.9vh;
   display: flex;
   justify-content: center;
   background-color: #9a3334;
