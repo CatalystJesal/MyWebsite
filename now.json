@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "alias": "jesal-patel.com",
   "builds": [
     { "src": "server/routes.js", "use": "@now/node" },
     { "src": "package.json", "use": "@now/next" }

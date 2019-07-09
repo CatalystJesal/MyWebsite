@@ -323,7 +323,7 @@ textarea {
 input[type="submit"] {
   font-size: 1em;
   color: white;
-  background-color: #2b2929;
+  background-color: rgba(43, 41, 41, 0.706);
   border: none;
   padding: 7px;
 }
