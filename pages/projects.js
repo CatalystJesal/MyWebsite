@@ -13,16 +13,19 @@ export default class extends React.Component {
 
   mapProjects = function(projects) {
     return projects.map(doc => {
-      const { _id: id, img, name, description, tech } = doc;
+      const { _id: id, img, name, description, tech, link } = doc;
 
       return (
         <div key={id} id={id}>
-          <img src={img} />
-          <div className="overlay">
-            <div className="overlay_title">{name}</div>
-            <div className="overlay_description">{description}</div>
-            <div className="overlay_tech">{tech}</div>
-          </div>
+          <a className="LI-simple-link" href={link} target="_blank">
+            <img src={img} />
+
+            <div className="overlay noselect">
+              <div className="overlay_title">{name}</div>
+              <div className="overlay_description">{description}</div>
+              <div className="overlay_tech">{tech}</div>
+            </div>
+          </a>
         </div>
       );
     });
