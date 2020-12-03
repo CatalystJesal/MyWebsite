@@ -54,8 +54,7 @@ export default class extends React.Component {
           <section>
             <div className="contact">
               <p>
-                Got an opportunity for me? I am currently interested in roles
-                involving database or web development.
+                Got an opportunity or would like to have a chat?
               </p>
               <br />
               <p>Please contact me via the form below:</p>

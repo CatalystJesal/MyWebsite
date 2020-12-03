@@ -8,7 +8,7 @@ var projectSchema = new Schema(
     description: String,
     tech: String
   },
-  { collection: "project" }
+  { collection: "Projects" }
 );
 
 module.exports = mongoose.model("Project", projectSchema);
