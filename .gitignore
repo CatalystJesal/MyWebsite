@@ -3,3 +3,4 @@ _next
 .next
 .env
 *.log
+.vercel

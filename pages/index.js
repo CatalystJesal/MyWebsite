@@ -1,16 +1,15 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
 import Layout from "../components/Layout";
 import Head from "next/head";
 import { AgeFromDate } from "age-calculator";
 
-export default class extends React.Component {
-  state = {
-    dateOfBirth: new AgeFromDate(new Date('1994', '06', '24')).age
-  };
 
-  render() {
+export default function Index (props) {
+  
+  const [dob, setDob] = useState(new AgeFromDate(new Date('1994', '06', '24')).age);
+
     return (
-      <Layout>
+      <Layout >
         <Head>
           <title>Jesal Patel ｜ Home</title>
         </Head>
@@ -20,7 +19,7 @@ export default class extends React.Component {
               <h1>About me</h1>
               <h2>
                 Name: Jesal Patel <br />
-                Age: {this.state.dateOfBirth} <br />
+                Age: {dob} <br />
                 Location: London, UK
               </h2>
               <p>
@@ -50,6 +49,5 @@ export default class extends React.Component {
           </section>
         </div>
       </Layout>
-    );
+    )
   }
-}

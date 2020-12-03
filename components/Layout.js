@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import Header from "./Header";
 import Navigation from "./Navigate";
 import Footer from "./Footer";
 import Head from "next/head";
 
-class Layout extends Component {
-  state = {};
-  render() {
+
+export default function Layout(props) {
+
+
     return (
       <div>
         <Head>
@@ -17,12 +18,11 @@ class Layout extends Component {
           <link rel="icon" type="image/x-icon" href="../static/favicon.ico" />
         </Head>
         <Header />
-        <Navigation />
-        {this.props.children}
+        <Navigation/>
+         {props.children}
         <Footer />
       </div>
     );
-  }
+  
 }
 
-export default Layout;

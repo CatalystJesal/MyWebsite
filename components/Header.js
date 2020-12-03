@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "../styles/styles.css";
 import Link from "next/link";
 
-class Header extends Component {
-  state = {};
-  render() {
+export default function Header(props)  {
+
     return (
       <div className="container">
         <header>
@@ -33,8 +32,7 @@ class Header extends Component {
           </div>
         </header>
       </div>
-    );
+    )
   }
-}
 
-export default Header;
+

@@ -1,7 +1,8 @@
+import React from 'react';
 import "../styles/styles.css";
 import Link from "next/link";
 
-const Navigation = () => {
+export default function Navigation(props) {
   return (
     <div className="container">
       <nav id="nav">
@@ -22,4 +23,3 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;

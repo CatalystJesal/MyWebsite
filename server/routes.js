@@ -1,6 +1,6 @@
 const server = require("./server");
 const Project = require("./project_schema");
-var connectToDatabase = require("./db");
+// var connectToDatabase = require("./dbConnect");
 const nodemailer = require("nodemailer");
 const aws = require("aws-sdk");
 
@@ -14,17 +14,17 @@ var config = new aws.Config({
 });
 aws.config = config;
 
-try {
-  server.get("/api/projects", (req, res) => {
-    connectToDatabase();
+// try {
+//   server.get("/api/projects", (req, res) => {
+//     connectToDatabase();
 
-    Project.find((err, projects) => {
-      res.send(projects);
-    });
-  });
-} catch (ex) {
-  console.log("API Error", ex);
-}
+//     Project.find((err, projects) => {
+//       res.send(projects);
+//     });
+//   });
+// } catch (ex) {
+//   console.log("API Error", ex);
+// }
 
 try {
   server.post("/api/send-email", async (req, res) => {
