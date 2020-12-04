@@ -1,9 +1,14 @@
-import dbConnect from '../../server/dbConnect';
-
-// dbConnect();
+const Project = require("../../server/project_schema");
 
 
-export default async(req,res) =>{
-    console.log("are we here");
-    res.json({test: 'test'});
-}
+
+try {
+    module.exports = (req, res) => {
+      Project.find((err, projects) => {
+    
+        res.send(projects);
+      });
+    };
+  } catch (ex) {
+    console.log("API Error", ex);
+  }

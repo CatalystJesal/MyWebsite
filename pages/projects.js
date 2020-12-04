@@ -3,20 +3,23 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 import { server } from "../config";
-import projects from "./api/projects";
 import {v4 as uuidv4} from "uuid";
 
-export default function Projects(props) {
+export default function Projects ({data}) {
 
   const [projectData, setProjectData] = useState([]);
 
   useEffect(function(){
       if(projectData.length == 0){
-        console.log("Are we here");
-        initProjectData();
+        setProjectData(data);
+        debugger;
+        
+        console.log("projectData is empty")
       }
 
   })
+
+
 
   const initProjectData = () => {
     const newProjectData =   [{
@@ -59,6 +62,8 @@ export default function Projects(props) {
 
   setProjectData(newProjectData);
   }
+  
+
 
     const mapData = function() {
       return projectData.map(({id, name, img, description, tech, link}) =>{
@@ -79,27 +84,6 @@ export default function Projects(props) {
       })
     }
 
-
-
-  const mapProjects = function(projects) {
-    return projects.map(doc => {
-      const { _id: id, img, name, description, tech, link } = doc;
-
-      return (
-        <div key={id} id={id}>
-          <a className="LI-simple-link" href={link} target="_blank">
-            <img src={img} />
-
-            <div className="overlay noselect">
-              <div className="overlay_title">{name}</div>
-              <div className="overlay_description">{description}</div>
-              <div className="overlay_tech">{tech}</div>
-            </div>
-          </a>
-        </div>
-      );
-    });
-  }
 
     return (
       <Layout>
@@ -127,15 +111,22 @@ export default function Projects(props) {
 }
 
 
-// export async function getStaticProps() {
-//   // const apiUrl = `${server}/api/projects`;
-//   // try {
-//   //   const response = await fetch(apiUrl);
-//   //   const projectData = await response.json();
+export async function getStaticProps ()  {
+  console.log("Inside getStaticProps()");
+  const apiUrl = `${server}/api/projects`;
+  try {
+    const response = await fetch(apiUrl);
+    const projectData = await response.json();
 
-//   //   return { projectData };
-//   // } catch (ex) {
-//   //   console.log(`Unable to fetch data from"  ${apiUrl}   -   ${ex}`);
-//   //   return { projectData: null };
-//   // }
-// }
+    return { 
+      props: {
+      data : projectData 
+    }
+  }
+  } catch (ex) {
+    console.log(`Unable to fetch data from"  ${apiUrl}   -   ${ex}`);
+    return {   props: {
+      data : [] 
+    }};
+  }
+}

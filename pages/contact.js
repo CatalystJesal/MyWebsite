@@ -1,33 +1,34 @@
+import React, {useState} from 'react';
 import Layout from "../components/Layout";
 import Head from "next/head";
 import axios from "axios";
 import { server } from "../config";
 
-export default class extends React.Component {
-  state = {
-    name: "",
-    email: "",
-    message: "",
-    buttonText: "Submit"
-  };
+export default function contact(props) {
 
-  handleSubmit(e) {
+const [name, setName] = useState("");
+const [email, setEmail] = useState("");
+const [message, setMessage] = useState("");
+const [buttonText, setButtonText] = useState("Submit");
+
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    this.setState({
-      buttonText: "Sending"
-    });
+
+      setButtonText("Sending");
+
 
     let data = {
-      name: this.state.name,
-      email: this.state.email,
-      message: this.state.message
+      name: name,
+      email: email,
+      message: message
     };
 
     axios
       .post(`${server}/api/send-email`, data)
       .then(res => {
-        this.setState(this.resetForm());
+        resetForm();
         console.log(res);
       })
       .catch(() => {
@@ -35,16 +36,13 @@ export default class extends React.Component {
       });
   }
 
-  resetForm = () => {
-    this.setState({
-      name: "",
-      email: "",
-      message: "Message Sent",
-      buttonText: "Submit"
-    });
-  };
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+    setButtonText("Submit");
+};
 
-  render() {
     return (
       <Layout>
         <Head>
@@ -59,14 +57,14 @@ export default class extends React.Component {
               <br />
               <p>Please contact me via the form below:</p>
               <div className="form-container">
-                <form onSubmit={e => this.handleSubmit(e)}>
+                <form onSubmit={e => handleSubmit(e)}>
                   <label>Name *</label>
                   <input
                     type="text"
                     placeholder="Your name"
                     name="name"
-                    value={this.state.name}
-                    onChange={evt => this.setState({ name: evt.target.value })}
+                    value={name}
+                    onChange={evt => setName(evt.target.value)}
                     required
                   />
                   <label>Email *</label>
@@ -74,8 +72,8 @@ export default class extends React.Component {
                     type="email"
                     placeholder="Your email"
                     name="email"
-                    value={this.state.email}
-                    onChange={evt => this.setState({ email: evt.target.value })}
+                    value={email}
+                    onChange={evt => setEmail(evt.target.value)}
                     required
                   />
                   <label>Message *</label>
@@ -83,13 +81,11 @@ export default class extends React.Component {
                     name="message"
                     placeholder="Your message"
                     name="message"
-                    value={this.state.message}
-                    onChange={evt =>
-                      this.setState({ message: evt.target.value })
-                    }
+                    value={message}
+                    onChange={evt => setMessage(evt.target.value)}
                     required
                   />
-                  <input type="submit" value={this.state.buttonText} />
+                  <input type="submit" value={buttonText} />
                 </form>
               </div>
             </div>
@@ -97,5 +93,5 @@ export default class extends React.Component {
         </div>
       </Layout>
     );
-  }
+
 }

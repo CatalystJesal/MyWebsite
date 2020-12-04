@@ -11,4 +11,8 @@ var projectSchema = new Schema(
   { collection: "Projects" }
 );
 
-module.exports =  mongoose.model("Project", projectSchema);
+  try {
+  module.exports = mongoose.model("Project");
+} catch (error){
+  module.exports = mongoose.model("Project", projectSchema);
+}
