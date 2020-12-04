@@ -12,7 +12,6 @@ export default function Projects ({data}) {
   useEffect(function(){
       if(projectData.length == 0){
         setProjectData(data);
-        debugger;
         
         console.log("projectData is empty")
       }
