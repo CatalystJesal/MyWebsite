@@ -6,10 +6,13 @@ var projectSchema = new Schema(
   {
     name: String,
     description: String,
-    tech: String
+    tech: String,
   },
   { collection: "Projects" }
 );
 
-
-module.exports =  mongoose.model("Project") || mongoose.model("Project", projectSchema);
+try {
+  module.exports = mongoose.model("Project");
+} catch (error) {
+  module.exports = mongoose.model("Project", projectSchema);
+}
