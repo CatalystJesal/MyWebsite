@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import Head from "next/head";
-import fetch from "isomorphic-unfetch";
-import { server } from "../config";
 import {v4 as uuidv4} from "uuid";
+import dbConnect from '../utils/dbConnect';
+import Project from '../model/Project';
 
 export default function Projects ({data}) {
 
@@ -17,52 +17,6 @@ export default function Projects ({data}) {
       }
 
   })
-
-
-
-  const initProjectData = () => {
-    const newProjectData =   [{
-      id: uuidv4(),
-      name: "Dextero",
-      img: "https://i.imgur.com/EFoOtqJ.png",
-      description:"Developed a multi-touch mobile game for stroke patients to rehabilitate their finger coordination and dexterity skills.",
-      tech: "Java, Android, LibGDX, SQLite",
-      link: "https://github.com/CatalystJesal/Dextero"
-    },
-
-    {
-      id: uuidv4(),
-      name: "Mirror Jump",
-      img: "https://i.imgur.com/Uk7sUdY.png",
-      description:"Created and published a run and jump Android 2D Game using Unity Game Engine.",
-      tech: "C#, Unity, Google Play Services, AdMob",
-      link: "https://play.google.com/store/apps/details?id=com.MirrorJump"
-    },
-
-    {
-      id: uuidv4(),
-      name: "Coin Flip",
-      img: "https://i.imgur.com/sv1he8W.png",
-      description:"Made a simple coin flip betting application for the Ethereum Blockchain.",
-      tech: "Solidity, Truffle, Ganache, Bootstrap CSS",
-      link: "https://github.com/CatalystJesal/CoinFlip"
-    },
-
-    {
-      id: uuidv4(),
-      name: "Coin Exchange",
-      img: "https://i.imgur.com/PflNcXO.png",
-      description:"Created a basic coin exchange application.",
-      tech: "ReactJS, HTML, CSS, Bootstrap",
-      link: "https://github.com/CatalystJesal/coin-exchange"
-    }
-
-  ]
-
-  setProjectData(newProjectData);
-  }
-  
-
 
     const mapData = function() {
       return projectData.map(({_id, name, img, description, tech, link}) =>{
@@ -110,31 +64,24 @@ export default function Projects ({data}) {
 }
 
 
-export async function getStaticProps ()  {
-  console.log("Inside getStaticProps()");
-  const apiUrl = `${server}/api/projects`;
-  try {
-    const response = await fetch(apiUrl,
-      {
-        method: "GET",
-        headers: {
-          // update with your user-agent
-          "User-Agent":
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36", 
-          Accept: "application/json; charset=UTF-8",
-        },
-      });
-    const projectData = await response.json();
+export async function getServerSideProps(){
+    await dbConnect();
 
-    return { 
+    try {
+    const result = await Project.find({});
+    const projectData = JSON.parse(JSON.stringify(result));
+  
+    return {
       props: {
-      data : projectData 
+        data: projectData
+      }
     }
-  }
-  } catch (ex) {
-    console.log(`Unable to fetch data from"  ${apiUrl}   -   ${ex}`);
-    return {   props: {
-      data : [] 
-    }};
+
+  } 
+  catch (ex) {
+        console.log(`Unable to fetch data from" ${ex}`);
+        return {   props: {
+          data : [] 
+        }};
   }
 }

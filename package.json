@@ -11,13 +11,16 @@
   "keywords": [],
   "author": "Jesal Patel",
   "license": "ISC",
+  "browser":{
+    "child_process": false
+  },
   "dependencies": {
     "@babel/core": "^7.12.9",
     "@engineerapart/nextscript": "^1.0.2",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-typescript": "^1.1.1",
     "age-calculator": "^1.0.0",
-    "aws-sdk": "^2.436.0",
+    "aws-sdk": "^2.804.0",
     "axios": "^0.18.1",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
@@ -36,7 +39,7 @@
     "next-images": "^1.0.4",
     "node": "^15.3.0",
     "node-ses": "^2.2.0",
-    "nodemailer": "^6.0.0",
+    "nodemailer": "^6.4.16",
     "now": "^21.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
