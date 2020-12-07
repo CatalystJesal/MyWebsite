@@ -27,59 +27,26 @@ export default async (req, res) => {
     return;
   }
 
-  const emailing = await transporter.sendMail(
-    {
-      from: "no-reply@jesal-patel.com",
-      to: process.env.EMAIL_ADDRESS,
-      cc: email,
-      subject: "A message from Jesal-Patel.com!",
-      text: message,
-    },
-    (err, info) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(info.envelope);
-        console.log(info.messageId);
-        res.end("Message has been sent");
-      }
-    }
-  );
+  const mailerRes = await mailer({ name, email, message });
+  res.send(mailerRes);
 };
 
-// try {
-//   server.post("/api/contact", async (req, res) => {
-//     const { name, email, message } = req.body;
+const mailer = ({ name, email, message }) => {
+  if (name === undefined && email === undefined && message === undefined) {
+    res.status(403).send("");
+    return;
+  }
+  const template = {
+    from: "no-reply@jesal-patel.com",
+    to: process.env.EMAIL_ADDRESS,
+    cc: email,
+    subject: `A message via Jesal-Patel.com!`,
+    text: message,
+  };
 
-//     console.log(`${name} <${email}> ${message}`);
-
-//     let transporter = nodemailer.createTransport({
-//       SES: new aws.SES({
-//         apiVersion: "latest"
-//       })
-//     });
-
-//     const info = await transporter.sendMail(
-//       {
-//         from: "no-reply@jesal-patel.com",
-//         to: process.env.EMAIL_ADDRESS,
-//         cc: email,
-//         subject: "A message from Jesal-Patel.com!",
-//         text: message
-//       },
-//       (err, info) => {
-//         if (err) {
-//           console.log(err);
-//         } else {
-//           console.log(info.envelope);
-//           console.log(info.messageId);
-//           res.end("Message has been sent");
-//         }
-//       }
-//     );
-//   });
-// } catch (ex) {
-//   console.log("Email Not Sent", ex);
-// }
-
-// module.exports = server;
+  return new Promise((resolve, reject) => {
+    transporter.sendMail(template, (error, info) => {
+      error ? reject(error) : resolve(info);
+    });
+  });
+};
