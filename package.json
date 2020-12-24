@@ -11,7 +11,7 @@
   "keywords": [],
   "author": "Jesal Patel",
   "license": "ISC",
-  "browser":{
+  "browser": {
     "child_process": false
   },
   "dependencies": {
@@ -44,7 +44,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "url-loader": "^1.1.2",
-    "uuid": "^8.3.1"
+    "uuid": "^8.3.1",
+    "vercel": "^21.0.1"
   },
   "devDependencies": {}
 }

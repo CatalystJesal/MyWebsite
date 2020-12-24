@@ -127,7 +127,7 @@ nav {
 
 .container section {
   min-height: 65.9vh;
-  display: grid;
+  display: flex;
   text-align: center;
   justify-content: center;
   background-color: #9a3334;
@@ -174,12 +174,13 @@ nav {
 }
 
 .grid-container {
-  min-height: 22em;
+  margin-top: 50px;
+  /* min-height: 22em; */
   width: 50em;
   max-width: 50em;
   margin-bottom: 55px;
   display: grid;
-  grid-gap: 10px 5px;
+  grid-gap: 10px 10px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   justify-content: center;
@@ -191,7 +192,7 @@ nav {
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   top: 0;
-  padding: 20px 150px;
+  padding: 25px 150px;
   height: 20vh;
   display: flex;
   justify-content: left;

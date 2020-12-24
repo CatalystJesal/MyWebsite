@@ -39,7 +39,6 @@ const mailer = ({ name, email, message }) => {
   const template = {
     from: "no-reply@jesal-patel.com",
     to: process.env.EMAIL_ADDRESS,
-    cc: email,
     subject: `A message via Jesal-Patel.com!`,
     text: message,
   };

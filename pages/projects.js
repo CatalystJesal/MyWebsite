@@ -38,12 +38,12 @@ export default function Projects({ data }) {
       </Head>
       <div className="container">
         <section>
-          <div className="project-description">
+          {/* <div className="project-description">
             <p>
               Here are some of the projects I have worked on during my spare
               time:
             </p>
-          </div>
+          </div> */}
           <div className="grid-container">{mapData()}</div>
         </section>
       </div>
