@@ -22,13 +22,6 @@ export default function Header(props)  {
             >
               <img src="https://i.imgur.com/FyP38AW.png" />
             </a>
-            <a
-              className="LI-simple-link"
-              href="https://twitter.com/Jesal_P24"
-              target="_blank"
-            >
-              <img src="https://i.imgur.com/tcuU1EE.png" />
-            </a>
           </div>
         </header>
       </div>

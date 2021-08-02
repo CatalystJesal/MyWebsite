@@ -23,9 +23,9 @@ export default function Index (props) {
                 Location: London, UK
               </h2>
               <p>
-                I am a Graduate Database Developer graduated from City University London
+                I am a Graduate SQL Developer graduated from City University London
                 with a Bachelor’s degree in Computer Science. Currently, I have
-                more than two years experience working as a back-end developer with
+                more than two years experience combined working as a back-end developer with
                 technologies such as C# and SQL.
               </p>
               <p>
