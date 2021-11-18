@@ -25,8 +25,9 @@ export default function contact(props) {
         resetForm();
         console.log(res);
       })
-      .catch(() => {
+      .catch((error) => {
         resetForm();
+        console.log(error.response.data);
         console.log("Message not sent");
       });
   };

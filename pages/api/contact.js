@@ -1,14 +1,14 @@
-// const server = require("./server");
+// const server = require("../../server");
 const nodemailer = require("nodemailer");
 const aws = require("aws-sdk");
 
 // //This file is the entry point for production mode
-// // require("dotenv").config();
+// require("dotenv").config();
 
 var config = new aws.Config({
   accessKeyId: process.env.SES_ACCESS,
   secretAccessKey: process.env.SES_SECRET,
-  region: "eu-west-1",
+  region: "eu-west-2",
 });
 
 aws.config = config;
@@ -39,7 +39,7 @@ const mailer = ({ name, email, message }) => {
   const template = {
     from: "no-reply@jesal-patel.com",
     to: process.env.EMAIL_ADDRESS,
-    subject: `A message via Jesal-Patel.com!`,
+    subject: `A message from ` + `( ` + email + ` )` + ` via Jesal-Patel.com!`,
     text: message,
   };
 
