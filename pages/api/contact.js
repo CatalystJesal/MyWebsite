@@ -1,14 +1,11 @@
-// const server = require("../../server");
+
 const nodemailer = require("nodemailer");
 const aws = require("aws-sdk");
-
-// //This file is the entry point for production mode
-// require("dotenv").config();
 
 var config = new aws.Config({
   accessKeyId: process.env.SES_ACCESS,
   secretAccessKey: process.env.SES_SECRET,
-  region: "eu-west-2",
+  region: "eu-west-1",
 });
 
 aws.config = config;
