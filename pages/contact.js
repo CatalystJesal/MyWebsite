@@ -74,7 +74,6 @@ export default function contact(props) {
                 <textarea
                   name="message"
                   placeholder="Your message"
-                  name="message"
                   value={message}
                   onChange={(evt) => setMessage(evt.target.value)}
                   required
